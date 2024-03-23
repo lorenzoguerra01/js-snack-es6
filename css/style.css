@@ -39,8 +39,9 @@ a {
 }
 .ms_screen {
     height: 100vh;
-    background-color:maroon;
+    background-color:gold;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }

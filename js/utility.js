@@ -84,4 +84,4 @@ function isRandomImage(x, y, alt) {
 }
 // global variables 
 
-let reply = document.getElementById("reply");
+let display = document.getElementById("display");
