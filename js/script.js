@@ -19,12 +19,13 @@ elBtnVip.addEventListener("click", () => {
         };
     });
     console.log(list);
-    let elUL = '<ul>';
+    let ul = '<ul>';
     list.forEach(item => {
-        elUL += `<li><span class="text-primary">Table name:</span> ${item.tableName} - <span class="text-primary">Guest Name:</span> ${item.guestName} - <span class="text-primary">Place:</span> N°${item.place}</li>`;
+        ul += `<li><span class="text-primary">Table name:</span> ${item.tableName} - <span class="text-primary">Guest Name:</span> ${item.guestName} - <span class="text-primary">Place:</span> N°${item.place}</li>`;
     });
+    ul += '</ul>';
 
-    display.innerHTML = elUL;
+    display.innerHTML = ul;
 })
 // SNACK 2
 // Abbiamo un elenco degli studenti di una facoltà, identificati da id, Nome e somma totale dei loro voti di esame...
