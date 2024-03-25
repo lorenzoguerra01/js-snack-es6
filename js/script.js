@@ -148,7 +148,7 @@ elBtnBikes.addEventListener("click", () => {
     let ul = document.createElement("ul")
     ul.innerHTML = `<span class="text-primary">BIKES:</span><br><br>`
     bikes.forEach(element => {
-        ul.innerHTML += `<li>Bikes Name:<span class="text-primary">${element.name}</span> Bike Weight:<span class="text-primary">${element.weight}</span></li>`;
+        ul.innerHTML += `<li>Bikes Name: <span class="text-primary">${element.name}</span> Bike Weight: <span class="text-primary">${element.weight} kg</span></li>`;
     });
 
     let lightestBike = bikes.reduce((min, current) => (current.weight < min.weight ? current : min), bikes[0]);
