@@ -1,4 +1,4 @@
-import * as utility from './utility.js';
+import { getRndInteger } from './utility.js';
 
 // SNACK 1
 // Dwayne Johnson ci ha chiesto di creare i segnaposto per il tavolo degli invitati alla sua mega festa vip.
@@ -23,6 +23,7 @@ elBtnVip.addEventListener("click", () => {
         };
     });
     console.log(list);
+
     let ul = '<ul>';
     list.forEach(element => {
         ul += `<li><span class="text-primary">Table name:</span> ${element.tableName} - <span class="text-primary">Guest Name:</span> ${element.guestName} - <span class="text-primary">Place:</span> N°${element.place}</li>`;
@@ -153,7 +154,7 @@ elBtnBikes.addEventListener("click", () => {
     let lightestBike = bikes.reduce((min, current) => (current.weight < min.weight ? current : min), bikes[0]);
     console.log(lightestBike);
 
-    const {name, weight} = lightestBike;
+    const { name, weight } = lightestBike;
 
     console.log(`The lightest bike is ${name} with a weight of ${weight} kg.`);
 
@@ -173,4 +174,46 @@ let elBtnTeams = document.getElementById("btn-teams");
 
 elBtnTeams.addEventListener("click", () => {
     display.innerHTML = "";
+
+    let teams = [
+        { name: "Manchester United", pointsScored: 0, foulsSuffered: 0 },
+        { name: "Liverpool", pointsScored: 0, foulsSuffered: 0 },
+        { name: "Barcelona", pointsScored: 0, foulsSuffered: 0 },
+        { name: "Real Madrid", pointsScored: 0, foulsSuffered: 0 },
+        { name: "Juventus", pointsScored: 0, foulsSuffered: 0 },
+        { name: "Bayern Munich", pointsScored: 0, foulsSuffered: 0 },
+        { name: "Paris Saint-Germain", pointsScored: 0, foulsSuffered: 0 },
+        { name: "Inter Milan", pointsScored: 0, foulsSuffered: 0 },
+        { name: "Atletico Madrid", pointsScored: 0, foulsSuffered: 0 },
+        { name: "AC Milan", pointsScored: 0, foulsSuffered: 0 }
+    ];
+    console.log(teams);
+
+    teams.forEach((element) => {
+        element.pointsScored = getRndInteger(60, 100);
+        element.foulsSuffered = getRndInteger(20, 50);
+    });
+    console.log(teams);
+
+    let teamsWithFouls = teams.map(({ name, foulsSuffered }) => ({ name, foulsSuffered }));
+
+    console.log(teamsWithFouls);
+
+    let elDiv = document.createElement("div");
+    elDiv.className = "d-flex align-items-center gap-5";
+
+    let ul = document.createElement("ul")
+    ul.innerHTML = `<span class="text-primary">TEAMS:</span><br><br>`
+    teams.forEach(element => {
+        ul.innerHTML += `<li>Team Name: <span class="text-primary">${element.name}</span>, Team Point Scored: <span class="text-primary">${element.pointsScored}</span>, Team Fouls Suffered: <span class="text-primary">${element.foulsSuffered}</span></li>`;
+    });
+    
+    let ul2 = document.createElement("ul")
+    ul2.innerHTML = `<span class="text-primary">TEAMS and FOULS:</span><br><br>`
+    teamsWithFouls.forEach(element => {
+        ul2.innerHTML += `<li>Team Name: <span class="text-primary">${element.name}</span>, Team Fouls Suffered: <span class="text-primary">${element.foulsSuffered}</span></li>`;
+    });
+    
+    elDiv.append(ul, ul2);
+    display.append(elDiv);
 });

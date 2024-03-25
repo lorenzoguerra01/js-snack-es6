@@ -88,4 +88,4 @@ let display = document.getElementById("display");
 
 // EXPORT
 
-export default {};
+export {getRndInteger};
