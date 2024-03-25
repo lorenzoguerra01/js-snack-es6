@@ -144,13 +144,24 @@ elBtnBikes.addEventListener("click", () => {
     ];
     console.log(bikes);
 
+    let ul = document.createElement("ul")
+    ul.innerHTML = `<span class="text-primary">BIKES:</span><br><br>`
+    bikes.forEach(element => {
+        ul.innerHTML += `<li>Bikes Name:<span class="text-primary">${element.name}</span> Bike Weight:<span class="text-primary">${element.weight}</span></li>`;
+    });
+
     let lightestBike = bikes.reduce((min, current) => (current.weight < min.weight ? current : min), bikes[0]);
     console.log(lightestBike);
 
     const {name, weight} = lightestBike;
 
     console.log(`The lightest bike is ${name} with a weight of ${weight} kg.`);
-    display.innerHTML = `The lightest bike is <span class="text-primary">${name}</span> with a weight of <span class="text-primary">${weight} kg</span>.`;
+
+    let elDiv = document.createElement("div");
+    elDiv.className = "d-flex align-items-center gap-5";
+    elDiv.append(ul);
+    elDiv.innerHTML += `<div>The lightest bike is <span class="text-primary">${name}</span> with a weight of <span class="text-primary">${weight} kg</span>.</div>`;
+    display.append(elDiv);
 });
 
 // SNACK 4
