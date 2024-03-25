@@ -75,9 +75,9 @@ elBtnStudents.addEventListener("click", () => {
         ul2.innerHTML += `<li>${element.name}</li>`;
     });
 
-    
+
     let stundents120 = students.filter((element) => {
-        return element.grades > 70 && element.id >120
+        return element.grades > 70 && element.id > 120
     })
     console.log(stundents120);
     let ul3 = document.createElement("ul")
@@ -95,11 +95,71 @@ elBtnStudents.addEventListener("click", () => {
 // Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
 // Stampare in console la bici con peso minore utilizzando destructuring e template literal
 
+let elBtnBikes = document.getElementById("btn-bikes");
 
+elBtnBikes.addEventListener("click", () => {
+    display.innerHTML = "";
 
+    let bikes = [
+        {
+            name: "Bianchi Oltre XR4",
+            weight: 7.1
+        },
+        {
+            name: "Trek Domane SLR 9",
+            weight: 7.3
+        },
+        {
+            name: "Specialized S-Works Roubaix",
+            weight: 7.4
+        },
+        {
+            name: "Cannondale SuperSix EVO",
+            weight: 6.8
+        },
+        {
+            name: "Giant TCR Advanced Pro",
+            weight: 7.2
+        },
+        {
+            name: "Pinarello Dogma F12",
+            weight: 6.9
+        },
+        {
+            name: "Cervelo R5",
+            weight: 7.5
+        },
+        {
+            name: "Scott Addict RC",
+            weight: 7.0
+        },
+        {
+            name: "Argon 18 Gallium Pro",
+            weight: 7.6
+        },
+        {
+            name: "Colnago C64",
+            weight: 7.7
+        }
+    ];
+    console.log(bikes);
+
+    let lightestBike = bikes.reduce((min, current) => (current.weight < min.weight ? current : min), bikes[0]);
+    console.log(lightestBike);
+
+    const {name, weight} = lightestBike;
+
+    console.log(`The lightest bike is ${name} with a weight of ${weight} kg.`);
+    display.innerHTML = `The lightest bike is <span class="text-primary">${name}</span> with a weight of <span class="text-primary">${weight} kg</span>.`;
+});
 
 // SNACK 4
 // Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
 // Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
 // Generare numeri random al posto degli 0 nelle proprietà: punti fatti e falli subiti.
 // Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
+let elBtnTeams = document.getElementById("btn-teams");
+
+elBtnTeams.addEventListener("click", () => {
+    display.innerHTML = "";
+});
